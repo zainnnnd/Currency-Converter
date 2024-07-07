@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url("lighthouse-starry-sky-night-landscape-5k-8k-7087x4724-9020.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .heading{
+            background-color: rgb(95, 129, 160);
+            height: 80px;
+            padding-top: 12px;
+            margin-bottom: 30px;
+            box-shadow: 3px 3px 6px 6px rgb(194, 146, 239);
+            border-radius: 30px;
+        }
+        .heading h1{
+            text-align: center;
+            color: azure;
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .main{
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid burlywood;
+            width: 700px;
+            height: 500px;
+            background-color: rgb(249, 242, 242);
+            box-shadow: 3px 3px 6px 6px gray;
+            margin-top: 70px;
+        }
+        h2{
+            font-size: 36px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        input{
+            width: 400px;
+            height: 40px;
+            margin-left: 135px;
+            border-radius: 10px;
+            border-style: dashed;
+            font-size: 20px;
+            border-width: 3px;
+            border-color: coral;
+        }
+        label{
+            font-size: 20px;
+            margin-left: 150px;
+            /* font-weight: bold; */
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="body">
+    <div class="heading">
+        <h1>Currency Converter</h1>
+    </div>
+    <div class="main">
+    <br>
+    <h2>Enter Value</h2><br><br><br><br>
+    <label for="">India (Rupee):</label> <br>
+    <input type="number" name="i" id="i"><br><br>
+    <label for="">United State (Dollar):</label> <br>
+    <input type="number" name="b" id="b"><br><br>
+    <label for="">Arab (Riyal):</label> <br>
+    <input type="number" name="c" id="c"><br><br>
+    <label for="">Europe (Euro):</label><br>
+    <input type="number" name="d" id="d"><br><br>
+    </div>
+</div>
+</body>
+
+
+<script>
+    var india, UnitedState, Arab, Europe;
+    india=document.getElementById("i");
+    UnitedState=document.getElementById("b");
+    Arab=document.getElementById("c");
+    Europe=document.getElementById("d");
+    india.addEventListener("input", function(){
+        let i=this.value;   
+        let j=i/82.04;  //Dollar
+        UnitedState.value=j;
+
+        j=i/21.87;  //Riyal
+        Arab.value=j;
+
+        j=i/89.29;
+        Europe.value=j;
+    })
+
+    UnitedState.addEventListener("input", function(){
+        let i=this.value;   
+        let j=i*82.04;  //Rupee
+        india.value=j; 
+
+        j=i/0.27;   //Riyal
+        Arab.value=j;
+
+        j=i/1.09;   //Euro
+        Europe.value=j;
+    })    
+
+    Arab.addEventListener("input", function(){
+        let i=this.value;
+        let j=i*21.87; //Rupee
+        india.value=j;
+
+        j=i*0.27;   //Dollar
+        UnitedState.value=j;
+
+        j=i/4.09;
+        Europe.value=j;
+    })
+
+    Europe.addEventListener("input", function(){
+        let i=this.value;
+        let j=i*89.29;
+        india.value=j;  //Rupee
+
+        j=i*1.09;
+        UnitedState.value=j;    //Dollar  
+        
+        j=i*4.09;
+        Arab.value=j;  
+    })
+</script>
+</html>
+
+
+
